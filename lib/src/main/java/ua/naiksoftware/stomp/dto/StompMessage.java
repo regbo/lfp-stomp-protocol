@@ -85,8 +85,11 @@ public class StompMessage {
             matcher.find();
             headers.add(new StompHeader(matcher.group(1), matcher.group(2)));
         }
-
-        reader.skip("\n\n");
+		try{
+			reader.skip("\n\n");
+		}catch(java.util.NoSuchElementException e){
+			//suppress for now, some errors dont have this
+		}
 
         reader.useDelimiter(TERMINATE_MESSAGE_SYMBOL);
         String payload = reader.hasNext() ? reader.next() : null;
