@@ -27,3 +27,7 @@ dependencies {
     testCompile 'ch.qos.logback:logback-classic:1.2.3'
 }
 // end::dependencies[]
+
+jar{
+  from sourceSets.main.allSource
+}
