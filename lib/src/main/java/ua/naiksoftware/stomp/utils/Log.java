@@ -1,6 +1,11 @@
 package ua.naiksoftware.stomp.utils;
 
-import org.slf4j.LoggerFactory;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 public class Log {
 
@@ -9,10 +14,12 @@ public class Log {
 	}
 
 	public static void v(String tag, String message, Throwable t) {
+		Logger logger = Logger.getLogger(tag);
+		Level level = Level.FINEST;
 		if (t == null)
-			LoggerFactory.getLogger(tag).trace(message);
+			logger.log(level, message);
 		else
-			LoggerFactory.getLogger(tag).trace(message, t);
+			logger.log(level, message, t);
 	}
 
 	public static void d(String tag, String message) {
@@ -20,10 +27,12 @@ public class Log {
 	}
 
 	public static void d(String tag, String message, Throwable t) {
+		Logger logger = Logger.getLogger(tag);
+		Level level = Level.CONFIG;
 		if (t == null)
-			LoggerFactory.getLogger(tag).debug(message);
+			logger.log(level, message);
 		else
-			LoggerFactory.getLogger(tag).debug(message, t);
+			logger.log(level, message, t);
 	}
 
 	public static void i(String tag, String message) {
@@ -31,10 +40,12 @@ public class Log {
 	}
 
 	public static void i(String tag, String message, Throwable t) {
+		Logger logger = Logger.getLogger(tag);
+		Level level = Level.INFO;
 		if (t == null)
-			LoggerFactory.getLogger(tag).info(message);
+			logger.log(level, message);
 		else
-			LoggerFactory.getLogger(tag).info(message, t);
+			logger.log(level, message, t);
 	}
 
 	public static void w(String tag, String message) {
@@ -42,10 +53,12 @@ public class Log {
 	}
 
 	public static void w(String tag, String message, Throwable t) {
+		Logger logger = Logger.getLogger(tag);
+		Level level = Level.WARNING;
 		if (t == null)
-			LoggerFactory.getLogger(tag).warn(message);
+			logger.log(level, message);
 		else
-			LoggerFactory.getLogger(tag).warn(message, t);
+			logger.log(level, message, t);
 	}
 
 	public static void e(String tag, String message) {
@@ -53,10 +66,33 @@ public class Log {
 	}
 
 	public static void e(String tag, String message, Throwable t) {
+		Logger logger = Logger.getLogger(tag);
+		Level level = Level.SEVERE;
 		if (t == null)
-			LoggerFactory.getLogger(tag).error(message);
+			logger.log(level, message);
 		else
-			LoggerFactory.getLogger(tag).error(message, t);
+			logger.log(level, message, t);
+	}
+
+	public static void main(String[] args) {
+		String template = "	public static void {{{METHOD}}}(String tag, String message) {\r\n"
+				+ "		{{{METHOD}}}(tag, message, null);\r\n" + "	}\r\n" + "\r\n"
+				+ "	public static void {{{METHOD}}}(String tag, String message, Throwable t) {\r\n"
+				+ "		Logger logger = Logger.getLogger(tag);\r\n" + "		Level level = Level.{{{LEVEL}}};\r\n"
+				+ "		if (t == null)\r\n" + "			logger.log(level, message);\r\n" + "		else\r\n"
+				+ "			logger.log(level, message, t);\r\n" + "	}";
+		Map<String, Level> map = new LinkedHashMap<>();
+		map.put("v", Level.FINEST);
+		map.put("d", Level.CONFIG);
+		map.put("i", Level.INFO);
+		map.put("w", Level.WARNING);
+		map.put("e", Level.SEVERE);
+		for (Entry<String, Level> ent : map.entrySet()) {
+			String str = template;
+			str = str.replaceAll(Pattern.quote("{{{METHOD}}}"), ent.getKey());
+			str = str.replaceAll(Pattern.quote("{{{LEVEL}}}"), ent.getValue() + "");
+			System.out.println(str + "\n\n");
+		}
 	}
 
 }
