@@ -11,6 +11,6 @@ Fork of https://github.com/NaikSoftware/StompProtocolAndroid with android depend
   
   	<dependency>
 	    <groupId>com.github.regbo</groupId>
-	    <artifactId>lfp-stomp-protocol-okhttp</artifactId>
+	    <artifactId>lfp-stomp-protocol</artifactId>
 	    <version>{{LATEST}}</version>
 	</dependency>
