@@ -1,10 +1,5 @@
 package ua.naiksoftware.stomp;
 
-import android.annotation.SuppressLint;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,16 +10,20 @@ import io.reactivex.BackpressureStrategy;
 import io.reactivex.Completable;
 import io.reactivex.CompletableSource;
 import io.reactivex.Flowable;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.subjects.BehaviorSubject;
 import io.reactivex.subjects.PublishSubject;
+import ua.naiksoftware.stomp.dto.LifecycleEvent;
 import ua.naiksoftware.stomp.dto.StompCommand;
+import ua.naiksoftware.stomp.dto.StompHeader;
 import ua.naiksoftware.stomp.dto.StompMessage;
 import ua.naiksoftware.stomp.pathmatcher.PathMatcher;
 import ua.naiksoftware.stomp.pathmatcher.SimplePathMatcher;
 import ua.naiksoftware.stomp.provider.ConnectionProvider;
-import ua.naiksoftware.stomp.dto.LifecycleEvent;
-import ua.naiksoftware.stomp.dto.StompHeader;
+import ua.naiksoftware.stomp.utils.Log;
+import ua.naiksoftware.stomp.utils.SuppressLint;
 
 /**
  * Created by naik on 05.05.16.

@@ -1,17 +1,5 @@
 package ua.naiksoftware.stomp.provider;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.util.Log;
-
-import org.java_websocket.WebSocket;
-import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.drafts.Draft_6455;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.handshake.ClientHandshake;
-import org.java_websocket.handshake.ServerHandshake;
-import ua.naiksoftware.stomp.dto.LifecycleEvent;
-
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,6 +8,18 @@ import java.util.TreeMap;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
+
+import org.java_websocket.WebSocket;
+import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.drafts.Draft_6455;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.handshake.ClientHandshake;
+import org.java_websocket.handshake.ServerHandshake;
+
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
+import ua.naiksoftware.stomp.dto.LifecycleEvent;
+import ua.naiksoftware.stomp.utils.Log;
 
 /**
  * Created by naik on 05.05.16.

@@ -1,16 +1,15 @@
 package ua.naiksoftware.stomp;
 
-import android.support.annotation.Nullable;
-import android.util.Log;
-
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Scheduler;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import ua.naiksoftware.stomp.dto.StompCommand;
 import ua.naiksoftware.stomp.dto.StompHeader;
 import ua.naiksoftware.stomp.dto.StompMessage;
+import ua.naiksoftware.stomp.utils.Log;
 
 public class HeartBeatTask {
 

@@ -1,19 +1,12 @@
 package ua.naiksoftware.stomp.provider;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.util.Log;
-
-import java.util.concurrent.TimeUnit;
-
 import io.reactivex.Completable;
 import io.reactivex.Observable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import io.reactivex.subjects.PublishSubject;
 import ua.naiksoftware.stomp.dto.LifecycleEvent;
-import ua.naiksoftware.stomp.dto.StompHeader;
-import ua.naiksoftware.stomp.dto.StompCommand;
-import ua.naiksoftware.stomp.dto.StompMessage;
+import ua.naiksoftware.stomp.utils.Log;
 
 /**
  * Created by forresthopkinsa on 8/8/2017.

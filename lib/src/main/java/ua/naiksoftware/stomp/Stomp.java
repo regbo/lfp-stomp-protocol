@@ -1,10 +1,9 @@
 package ua.naiksoftware.stomp;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import java.util.Map;
 
+import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import okhttp3.OkHttpClient;
 import ua.naiksoftware.stomp.provider.OkHttpConnectionProvider;
 import ua.naiksoftware.stomp.provider.WebSocketsConnectionProvider;
