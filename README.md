@@ -1,4 +1,4 @@
-# STOMP protocol via WebSocket for OkHttp
+# STOMP protocol via WebSocket
 
 Fork of https://github.com/NaikSoftware/StompProtocolAndroid with android dependencies removed
 
