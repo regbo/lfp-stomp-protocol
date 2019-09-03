@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>lfp-stomp-protocol-okhttp</name>
+	<name>lfp-stomp-protocol</name>
 	<comment>Project lfp-stomp-protocol-okhttp created by Buildship.</comment>
 	<projects>
 	</projects>
